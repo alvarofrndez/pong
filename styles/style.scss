@@ -8,8 +8,10 @@ body{
 
     // display
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 3rem;
 
     // decoration
     background-color: rgb(224, 224, 224);
