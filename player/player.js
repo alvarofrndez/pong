@@ -12,6 +12,7 @@ export default class Player{
             [type]
         ]
         this.score = 0;
+        this.id = type;
 
         this.setMove(type)
     }

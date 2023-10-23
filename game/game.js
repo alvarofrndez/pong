@@ -4,17 +4,27 @@ import * as cons from "../constants/constants.js";
 
 export default class Game{
     constructor(){
-        this.players = [
-            new Player(1, cons.PLAYERS_Y / 2 ,1),
-            new Player(cons.BOARD_WIDTH - 2, cons.PLAYERS_Y / 2 ,2)
-        ]
+        this.players = [];
         this.ball = new Ball(cons.BOARD_WIDTH / 2, cons.BOARD_HEIGTH / 2)
         this.board = [];
         this.canvas = document.querySelector('canvas');
+        this.fps;
        
+        this.addNewPlayer();
+        this.addNewPlayer();
+
+        this.goal();
+
         this.setCanvas()
         this.setBoard()
         this.update()
+    }
+
+    addNewPlayer(){
+        if(this.players.length < 1)
+            this.players.push(new Player(1, cons.PLAYERS_Y / 2 ,1));
+        else
+            this.players.push(new Player(cons.BOARD_WIDTH - 2, cons.PLAYERS_Y / 2 ,2));
     }
 
     draw(){
@@ -40,7 +50,16 @@ export default class Game{
     update(){
         // refrehs the game
         this.draw();
-        setTimeout(() => this.update(), 10)
+        this.fps = setTimeout(() => this.update(), 10)
+        this.players.map(p => p.score == 10 ? this.finish(p) : null);
+    }
+
+    finish(p){
+        clearTimeout(this.fps);
+        let winner = document.getElementsByClassName('winner')[0];
+        winner.style.display = 'flex';
+        winner.children[0].innerHTML =`Partida finalizada ganador jugador ${p.id.toString()}`;
+        document.getElementsByClassName('init')[1].style.display = 'initial';
     }
 
     setCanvas(){
@@ -122,9 +141,11 @@ export default class Game{
         // add goal to the score
         this.ball = new Ball(cons.BOARD_WIDTH / 2, cons.BOARD_HEIGTH / 2);
         if(type == 1){
-            document.getElementById("player1").innerHTML = this.players[0].newScore();
-            return
+            this.players[0].newScore();
+        }else if(type == 2){
+            this.players[1].newScore();
         }
-        document.getElementById("player2").innerHTML = this.players[1].newScore();
+        document.getElementById("player1").innerHTML = this.players[0].score
+        document.getElementById("player2").innerHTML = this.players[1].score;
     }
 }

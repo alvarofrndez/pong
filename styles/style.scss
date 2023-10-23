@@ -49,5 +49,34 @@ body{
         position: absolute;
         left: calc(50% - 50px);
         top: calc(50% - 20px);
+        z-index: 1000;
+    }
+
+    .winner{
+        // size
+        width: 40vw;
+        height: 60vh;
+
+        // position
+        position: absolute;
+        z-index: 100;
+
+        // display
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        // decoration
+        background-color: hsla(240, 100%, 100%, 0.918);
+        border-radius: 30px;
+
+        h1{
+            // size
+            width: 70%;
+            height: 50%;
+
+            // decoration
+            text-align: center;
+        }
     }
 }

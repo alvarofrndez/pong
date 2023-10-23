@@ -29,6 +29,23 @@ body .init {
   position: absolute;
   left: calc(50% - 50px);
   top: calc(50% - 20px);
+  z-index: 1000;
+}
+body .winner {
+  width: 40vw;
+  height: 60vh;
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: hsla(240, 100%, 100%, 0.918);
+  border-radius: 30px;
+}
+body .winner h1 {
+  width: 70%;
+  height: 50%;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
