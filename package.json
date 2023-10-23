@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile:sass": "sass styles/style.scss styles/style.css",
+    "compile:sass": "sass styles/style.scss style.css",
     "watch:sass": "nodemon -e scss -x \"npm run compile:sass\""
   },
   "keywords": [],
