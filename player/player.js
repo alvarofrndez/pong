@@ -13,6 +13,10 @@ export default class Player{
         ]
         this.score = 0;
 
+        this.setMove(type)
+    }
+
+    setMove(type){
         if(type === 1)
             document.addEventListener('keydown', e => {
                 if(e.key === 'w' ){
