@@ -7,6 +7,7 @@ window.addEventListener('load', () => {
             e.target.style.display = 'none';
             document.getElementsByClassName('winner')[0].style.display = 'none';
             new Game();
+            playAudio();
         })
     }
 
@@ -22,4 +23,10 @@ function start(e){
         document.getElementsByClassName('winner')[0].style.display = 'none';
         new Game();
     }
+}
+
+function playAudio(){
+    let audio = new Audio('music.mp3');
+    audio.volume = 0.05;
+    audio.play();
 }
