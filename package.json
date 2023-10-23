@@ -1,0 +1,19 @@
+{
+  "name": "pong",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "sass styles/style.scss styles/style.css",
+    "watch:sass": "nodemon -e scss -x \"npm run compile:sass\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "sass": "^1.69.4"
+  }
+}
